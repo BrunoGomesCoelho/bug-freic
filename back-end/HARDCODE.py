@@ -18,8 +18,12 @@ Introdução ao Desenvolvimento Web, Web Semântica, Redes de Computadores
 Internet das Coisas, Sistemas Distribuídos, Programação Paralela, Redes de Computadores"""
 
 SITUACAO_COLORS = np.array(["green", "yellow", "red"])
-SITUACAO_DESC = np.array(["Projeto aprovado", 
+SITUACAO_DESC = np.array(["Projeto aprovado",
     "Alunos selecionados, aguardando recursos financeiros",
     "Projeto recusado"])
 
+EMPRESAS = np.array(["Raccoon", "Nubank", "Google", "Facebook",
+                     "Apple", "Microsoft", "Spofity", "TokenLab"])
 
+ALUNOS = np.array(["Bruno Coelho", "Gabriel Cruz", "Marcus Vinicius Junqueira",
+                   "Leticia Lumi"])
