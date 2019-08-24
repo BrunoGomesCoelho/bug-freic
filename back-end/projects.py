@@ -20,10 +20,10 @@ def _all_projects():
     df["Gastos"] = (np.random.randint(3, 10, size=len(df))*100*12).astype(str)
     df["Gastos"] += ",00"
     df["Empresas"] = np.random.choice(EMPRESAS, 1)[0]
-    _alunos = np.random.choice(ALUNOS, 3)
-    df["Alunos"] = _alunos[0] + ', ' + \
-                   _alunos[1] + ', ' + \
-                   _alunos[2] + '\n'
+    df["Alunos"] = ALUNOS[0] + ', ' + \
+                   ALUNOS[1] + ', ' + \
+                   ALUNOS[2] + ', ' + \
+                   ALUNOS[3] + '\n'
 
     result = {}
 
