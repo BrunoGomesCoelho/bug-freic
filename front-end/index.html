@@ -123,8 +123,13 @@
                 </nav>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
+<<<<<<< HEAD
                         <h3 class="text-dark mb-0">Olá Pesquisadora, Maria da Graça</h3><a
                             class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i
+=======
+                        <h3 class="text-dark mb-0">Olá professora Maria da Graça</h3><a
+                            class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add_projeto.html"><i
+>>>>>>> 3d85438cb2e8385a230ebb053a4a25d3fcbb7298
                                 class="fas fa-download fa-sm text-white-50"></i>Adicionar projeto</a>
                     </div><label>Projetos</label>
                     <div class="row">
@@ -159,7 +164,7 @@
                                         <th style="width: 139px;">Data de início</th>
                                         <th>Data final</th>
                                         <th>Patrocínio</th>
-                                        <th>Alunos</th>
+                                        <th>Qtd Alunos</th>
                                         <th>Situação</th>
                                     </tr>
                                 </thead>
@@ -265,12 +270,16 @@
             row.appendChild(cellPatrocinio);
 
             let cellAlunos = document.createElement("td");
-            let cellTextAlunos = document.createTextNode(projects[i].Alunos);
+			// We use this to have a random number between 0 and 9
+			aluno_amount = projects[i].Gastos[0]
+            let cellTextAlunos = document.createTextNode(aluno_amount);
             cellAlunos.appendChild(cellTextAlunos);
             row.appendChild(cellAlunos);
 
             let cellSituacao_Desc = document.createElement("td");
             let cellTextSituacao_Desc = document.createTextNode(projects[i].Situacao_Desc);
+			// Add color
+			cellSituacao_Desc.style.color = projects[i].Situacao_Cor;
             cellSituacao_Desc.appendChild(cellTextSituacao_Desc);
             row.appendChild(cellSituacao_Desc);
 
