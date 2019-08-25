@@ -237,7 +237,8 @@
             row.setAttribute("data-target", "#orderModal");
 
             function addLabelContext(id, text) {
-                document.getElementById(id).textContent += text;
+                document.getElementById(id).textContent = null;
+                document.getElementById(id).textContent = text;
             }
 
             function addTextArea(id, text) {
