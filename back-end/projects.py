@@ -19,16 +19,23 @@ def _all_projects():
     df["Gastos_Desc"] = FINANCES_DESCRIPTION
     df["Gastos"] = (np.random.randint(3, 10, size=len(df))*100*12).astype(str)
     df["Gastos"] += ",00"
-    df["Empresas"] = np.random.choice(EMPRESAS, 1)[0]
+    df["Empresas"] = EMPRESAS[np.random.randint(len(EMPRESAS), size=len(df))]
     df["Alunos"] = ALUNOS[0] + ', ' + \
                    ALUNOS[1] + ', ' + \
                    ALUNOS[2] + ', ' + \
                    ALUNOS[3] + '\n'
 
+    # Get dates
     df["Data_inicio"] = pd.date_range(start='01/01/2019', end='24/08/2019', \
                                       periods=len(df))
     df["Data_fim"] = pd.date_range(start='25/10/2019', end='01/01/2021', \
                                       periods=len(df))
+    # Correctly get format day-month-year
+    for col in ["Data_inicio", "Data_fim"]:
+        temp = df[col].copy(deep=True)
+        df[col] = temp.dt.day.astype(str) + "-"
+        df[col] += temp.dt.month.astype(str) + "-" 
+        df[col] += temp.dt.year.astype(str)
 
     result = {}
 
