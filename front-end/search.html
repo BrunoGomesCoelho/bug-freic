@@ -127,18 +127,28 @@
             <div class="container">
                 <h3 class="text-dark mb-4">Pesquisar projeto</h3>
                 <div class="container">
-                    <div class="card">
-                        <div class="card-body">
-                            <row>
-                                <col>
-                                    <label>Parte do título:</label>
-                                    <input type="text" id="searchText">
-									<input type="button" value="Pesquisar" id="searchButton">
-                                </col>
-                            </row>
-                        </div>
-                    </div>
-                </div>    
+						<form class="form-inline">
+						  <div class="form-group mb-2">
+                          	<input type="text" id="searchText" value="Parte do título">
+						  </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <select id="dropdownSituacao" name="financiamento" class="form-control">
+                                        <option value="Projeto aprovado">Projeto aprovado</option>
+                                        <option value="Aguardando finaciamento">Aguardando finaciamento</option>
+                                        <option value="Projeto recusado">Projeto recusado</option>
+										</div>
+                                    </select>
+                                </div>
+                            </div>
+
+					  <div class="form-group mb-2">
+						  		<input type="button" value="Pesquisar" id="searchButton">
+						  </div>
+						</form>
+               </div>    
                 <div class="card shadow mb-5"></div>
             </div>
         </div>
@@ -267,9 +277,12 @@
 
 		function searchProject() {
 			query = document.getElementById("searchText").value
+			situacao = document.getElementById("dropdownSituacao").value
+			console.log(situacao)
+
 
 			let xhr = new XMLHttpRequest();
-			xhr.open('GET', 'http://localhost:5000/search/' + query);
+			xhr.open('GET', 'http://localhost:5000/search/' + query + '/' + situacao);
 			xhr.responseType = 'json';
 			xhr.send();
 

@@ -29,10 +29,14 @@ def all_students():
     return process_dataframe(df_students)
 
 
-@app.route('/search/<string:title>', methods=["GET"])
-def search(title):
+@app.route('/search/<string:title>/<string:situacao_desc>', methods=["GET"])
+def search(title, situacao_desc):
+    print(situacao_desc)
     idx = df_projects["Titulo_do_Projeto"].str.contains(title)
-    return process_dataframe(df_projects[idx])
+    temp = df_projects[idx]
+    idx = temp["Situacao_Desc"].str.contains(situacao_desc)
+
+    return process_dataframe(temp[idx])
 
 
 if __name__ == '__main__':
