@@ -164,18 +164,18 @@
             </div>
 
             <div id="orderModal" class="modal fade" role="dialog" aria-labelledby="orderModal" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
+                <div class="modal-dialog">
+                    <div class="modal-content">
                         <div class="modal-header">
-                          <h3>Detalhes do projeto</h3>
+                            <h3>Detalhes do projeto</h3>
                         </div>
                         <div id="orderDetails" class="modal-body"></div>
                         <div id="orderItems" class="modal-body"></div>
                         <div class="modal-footer">
-                          <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
                         </div>
-                      </div>
                     </div>
+                </div>
             </div>
         </div>
     </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
@@ -188,9 +188,8 @@
         $('#orderModal').modal({
             keyboarnd: true,
             backdrop: "static",
-            show:false,
-
-        }).on('show.bs.modal', function(){
+            show: false,
+        }).on('show.bs.modal', function () {
             var getIdFromRow = $(this).data('orderid');
             //make your ajax call populate items or what even you need
             $(this).find('#orderDetails').html($('<b> Título do projeto:' + getIdFromRow  + '</b>'))
@@ -200,53 +199,66 @@
             $(this).find('#orderDetails').html($('<b> Gasto total: ' + getIdFromRow  + '</b>'))
             $(this).find('#orderDetails').html($('<b> Descrição dos gastos: ' + getIdFromRow  + '</b>'))
             $(this).find('#orderDetails').html($('<b> Situação: ' + getIdFromRow  + '</b>'))
-        });
+       });
 
-        $(".table-striped").find('tr[data-target]').on('click', function(){
+        $(".table-striped").find('tr[data-target]').on('click', function () {
             //or do your operations here instead of on show of modal to populate values to modal.
-            $('#orderModal').data('orderid',$(this).data('id'));
+            $('#orderModal').data('orderid', $(this).data('id'));
         });
     </script>
 
     <script>
-      //<tr data-toggle="modal" data-id="1" data-target="#orderModal">
+        //<tr data-toggle="modal" data-id="1" data-target="#orderModal">
 
-      function populateRow(projects, i) {
-        let row = document.createElement("tr");
+        function populateRow(projects, i) {
+            let row = document.createElement("tr");
 
-        let cellName = document.createElement("td");
-        let cellTextName = document.createTextNode(projects[i].Titulo_do_Projeto);
-        cellName.appendChild(cellTextName);
-        row.appendChild(cellName);
+            row.setAttribute("data-toggle", "modal");
+            row.setAttribute("data-id", "1");
+            row.setAttribute("data-target", "#orderModal");
 
-        let cellStart = document.createElement("td");
-        let cellTextStart = document.createTextNode(projects[i].Data_inicio);
-        cellStart.appendChild(cellTextStart);
-        row.appendChild(cellStart);
+            row.onclick = function (ev) {
+                // ev.target <== td element
+                // ev.target.parentElement <== tr
+                let index = ev.target.parentElement.rowIndex;
+                console.log(index);
 
-        let cellEnd = document.createElement("td");
-        let cellTextEnd = document.createTextNode(projects[i].Data_fim);
-        cellEnd.appendChild(cellTextEnd);
-        row.appendChild(cellEnd);
+                // index => projects[index] e ai pega para preencher o index
+            }
 
-        let cellPatrocinio = document.createElement("td");
-        let cellTextPatrocinio = document.createTextNode(projects[i].Empresas);
-        cellPatrocinio.appendChild(cellTextPatrocinio);
-        row.appendChild(cellPatrocinio);
+            let cellName = document.createElement("td");
+            let cellTextName = document.createTextNode(projects[i].Titulo_do_Projeto);
+            cellName.appendChild(cellTextName);
+            row.appendChild(cellName);
 
-        let cellAlunos = document.createElement("td");
-        let cellTextAlunos = document.createTextNode(projects[i].Alunos);
-        cellAlunos.appendChild(cellTextAlunos);
-        row.appendChild(cellAlunos);
+            let cellStart = document.createElement("td");
+            let cellTextStart = document.createTextNode(projects[i].Data_inicio);
+            cellStart.appendChild(cellTextStart);
+            row.appendChild(cellStart);
 
-        let cellSituacao_Desc = document.createElement("td");
-        let cellTextSituacao_Desc = document.createTextNode(projects[i].Situacao_Desc);
-        cellSituacao_Desc.appendChild(cellTextSituacao_Desc);
-        row.appendChild(cellSituacao_Desc);
+            let cellEnd = document.createElement("td");
+            let cellTextEnd = document.createTextNode(projects[i].Data_fim);
+            cellEnd.appendChild(cellTextEnd);
+            row.appendChild(cellEnd);
 
-        return row;
+            let cellPatrocinio = document.createElement("td");
+            let cellTextPatrocinio = document.createTextNode(projects[i].Empresas);
+            cellPatrocinio.appendChild(cellTextPatrocinio);
+            row.appendChild(cellPatrocinio);
 
-      }
+            let cellAlunos = document.createElement("td");
+            let cellTextAlunos = document.createTextNode(projects[i].Alunos);
+            cellAlunos.appendChild(cellTextAlunos);
+            row.appendChild(cellAlunos);
+
+            let cellSituacao_Desc = document.createElement("td");
+            let cellTextSituacao_Desc = document.createTextNode(projects[i].Situacao_Desc);
+            cellSituacao_Desc.appendChild(cellTextSituacao_Desc);
+            row.appendChild(cellSituacao_Desc);
+
+            return row;
+
+        }
 
         let xhr = new XMLHttpRequest();
 
@@ -257,16 +269,16 @@
         xhr.send();
 
         xhr.onload = function () {
-          // populate tables
-          let projects = xhr.response;
-          var tbody = document.getElementById("project-list");
+            // populate tables
+            let projects = xhr.response;
+            var tbody = document.getElementById("project-list");
 
-          tbody.appendChild(populateRow(projects, 0));
-          tbody.appendChild(populateRow(projects, 1));
-          tbody.appendChild(populateRow(projects, 2));
-          tbody.appendChild(populateRow(projects, 3));
-          tbody.appendChild(populateRow(projects, 4));
-          tbody.appendChild(populateRow(projects, 5));
+            tbody.appendChild(populateRow(projects, 0));
+            tbody.appendChild(populateRow(projects, 1));
+            tbody.appendChild(populateRow(projects, 2));
+            tbody.appendChild(populateRow(projects, 3));
+            tbody.appendChild(populateRow(projects, 4));
+            tbody.appendChild(populateRow(projects, 5));
         };
     </script>
 </body>
