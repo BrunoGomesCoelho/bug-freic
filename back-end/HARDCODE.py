@@ -17,9 +17,9 @@ Algoritmos e Estruturas de Dados, Projeto e Análise de Algoritmos
 Introdução ao Desenvolvimento Web, Web Semântica, Redes de Computadores
 Internet das Coisas, Sistemas Distribuídos, Programação Paralela, Redes de Computadores"""
 
-SITUACAO_COLORS = np.array(["green", "yellow", "red"])
+SITUACAO_COLORS = np.array(["green", "orange", "red"])
 SITUACAO_DESC = np.array(["Projeto aprovado",
-    "Alunos selecionados, aguardando recursos financeiros",
+    "Aguardando financiamento",
     "Projeto recusado"])
 
 EMPRESAS = np.array(["Raccoon", "Nubank", "Google", "Facebook",
