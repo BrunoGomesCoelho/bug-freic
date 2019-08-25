@@ -9,6 +9,18 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <style>
+        .cor-modal {
+            font-weight: 700;
+            color: #4e73df;
+        }
+
+        .cor-detalhe {
+            color: #303138;
+            font-weight: 650;
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
@@ -23,8 +35,11 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i
-                                class="fas fa-tachometer-alt"></i><span>Dashboard</span></a><a class="nav-link"
-                            href="profile.html"><i class="fas fa-user"></i><span>Perfil</span></a></li>
+                                class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span></a>
+                        <a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Perfil</span></a>
+                        <a class="nav-link" href="search.html"><i class="fas fa-user"></i><span>Pesquisa</span></a>
+                    </li>
                 </ul>
                 <div class="text-center d-none d-md-inline"></div>
             </div>
@@ -61,31 +76,39 @@
                                     aria-labelledby="alertsDropdown"></div>
                             </li>
                             <li class="nav-item dropdown no-arrow mx-1" role="presentation">
-                                <li class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-envelope fa-fw"></i><span class="badge badge-danger badge-counter"></span></a>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in"
-                                        role="menu">
-                                        <h6 class="dropdown-header">Últimas notificações</h6>
-                                        <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="font-weight-bold">
-                                                <div class="text"><span>A pesquisa "Uso de taurina na adição..." foi aprovada.</span></div>
-                                                <p class="small text-gray-500 mb-0">Há 58m</p>
+                            <li class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
+                                    data-toggle="dropdown" aria-expanded="false" href="#"><i
+                                        class="fas fa-envelope fa-fw"></i><span
+                                        class="badge badge-danger badge-counter"></span></a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in"
+                                    role="menu">
+                                    <h6 class="dropdown-header">Últimas notificações</h6>
+                                    <a class="d-flex align-items-center dropdown-item" href="#">
+                                        <div class="font-weight-bold">
+                                            <div class="text"><span>A pesquisa "Uso de taurina na adição..." foi
+                                                    aprovada.</span></div>
+                                            <p class="small text-gray-500 mb-0">Há 58m</p>
+                                        </div>
+                                    </a>
+                                    <a class="d-flex align-items-center dropdown-item" href="#">
+                                        <div class="font-weight-bold">
+                                            <div class="text"><span>Há alunos querendo fazer IC na sua área. Veja
+                                                    mais.</span></div>
+                                            <p class="small text-gray-500 mb-0">Há 1d</p>
+                                        </div>
+                                    </a>
+                                    <a class="d-flex align-items-center dropdown-item" href="#">
+                                        <div class="font-weight-bold">
+                                            <div class="text"><span>A empresa Ifood aprovou o seu orçamento.</span>
                                             </div>
-                                        </a>
-                                        <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="font-weight-bold">
-                                                <div class="text"><span>Há alunos querendo fazer IC na sua área. Veja mais.</span></div>
-                                                <p class="small text-gray-500 mb-0">Há 1d</p>
-                                            </div>
-                                        </a>
-                                        <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="font-weight-bold">
-                                                <div class="text"><span>A empresa Ifood aprovou o seu orçamento.</span></div>
-                                                <p class="small text-gray-500 mb-0">Há 2d</p>
-                                            </div>
-                                        </a>
-				<a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a></div>
-                                </li>
- 
+                                            <p class="small text-gray-500 mb-0">Há 2d</p>
+                                        </div>
+                                    </a>
+                                    <a class="text-center dropdown-item small text-gray-500" href="#">Show All
+                                        Alerts</a>
+                                </div>
+                            </li>
+
 
 
 
@@ -93,7 +116,7 @@
                             <li class="nav-item dropdown no-arrow" role="presentation">
                             <li class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                     data-toggle="dropdown" aria-expanded="false" href="#"><span
-                                        class="d-none d-lg-inline mr-2 text-gray-600 small">Nome Sobrenome</span><img
+                                        class="d-none d-lg-inline mr-2 text-gray-600 small">Maria da Graca</span><img
                                         class="border rounded-circle img-profile"
                                         src="assets/img/avatars/avatar1.jpeg"></a>
                                 <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a
@@ -115,28 +138,26 @@
                 </nav>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Olá professora Maria da Graça</h3><a
-                            class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add_projeto.html"><i
-                                class="fas fa-download fa-sm text-white-50"></i>Adicionar projeto</a>
-                    </div><label>Projetos</label>
-                    <div class="row">
-                        <div class="col">
-                            <div class="modal fade" role="dialog" tabindex="-1">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h4 class="modal-title">Modal Title</h4><button type="button" class="close"
-                                                data-dismiss="modal" aria-label="Close"><span
-                                                    aria-hidden="true">×</span></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>The content of your modal.</p>
-                                        </div>
-                                        <div class="modal-footer"><button class="btn btn-light" type="button"
-                                                data-dismiss="modal">Close</button><button class="btn btn-primary"
-                                                type="button">Save</button></div>
-                                    </div>
+                        <h3 class="text-dark mb-0">Olá, Maria da Graça</h3><a
+                            class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button"
+                            href="add_projeto.html">
+                            <i class="fas fa-download fa-sm text-white-50"></i> Adicionar
+                            projeto</a>
+                    </div>
+                    <div class="modal fade" role="dialog" tabindex="-1">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Modal Title</h4><button type="button" class="close"
+                                        data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">×</span></button>
                                 </div>
+                                <div class="modal-body" style="margin: 30px">
+                                    <p>The content of your modal.</p>
+                                </div>
+                                <div class="modal-footer"><button class="btn btn-light" type="button"
+                                        data-dismiss="modal">Close</button><button class="btn btn-primary"
+                                        type="button">Save</button></div>
                             </div>
                         </div>
                     </div>
@@ -144,7 +165,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th>Nome</th>
@@ -164,14 +185,18 @@
             </div>
 
             <div id="orderModal" class="modal fade" role="dialog" aria-labelledby="orderModal" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content" style="padding: 20px 32px 32px 32px">
                         <div class="modal-header">
-                            <h3>Detalhes do projeto</h3>
+                            <h3 class="cor-detalhe">Detalhes do projeto</h3>
                         </div>
                         <div id="orderDetails" class="modal-body"></div>
-                        <div id="orderItems" class="modal-body"></div>
-                        <div class="modal-footer">
+                        <h5 class="cor-modal">Título: </h5><label id="titulo_projeto"></label>
+                        <h5 class="cor-modal">Pesquisador(a) Responsável: </h5><label id="pesquisador_projeto"></label>
+                        <h5 class="cor-modal">Cronograma: </h5><label for="cronograma_projeto"></label>
+                        <textarea name="cronograma_projeto" id="cronograma_projeto" cols="30" rows="10"
+                            readonly></textarea>
+                        <div class=" modal-footer">
                             <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
                         </div>
                     </div>
@@ -193,17 +218,7 @@
             var getIdFromRow = $(this).data('orderid');
             //make your ajax call populate items or what even you need
 
-			my_text = '<b> Título do projeto:' + getIdFromRow  + '</b>' 
-			my_text += '<b> Descrição dos gastos: ' + getIdFromRow  + '</b>'
-            $(this).find('#orderDetails').html($('<b> Título do projeto:' + getIdFromRow  + '</b>'))
-            $(this).find('#orderDetails').html($('<b> Data de início: ' + getIdFromRow  + '</b>'))
-            $(this).find('#orderDetails').html($('<b> Data de fim: ' + getIdFromRow  + '</b>'))
-            $(this).find('#orderDetails').html($('<b> Data de fim: ' + getIdFromRow  + '</b>'))
-            $(this).find('#orderDetails').html($('<b> Gasto total: ' + getIdFromRow  + '</b>'))
-            $(this).find('#orderDetails').html($('<b> Descrição dos gastos: ' + getIdFromRow  + '</b>'))
-            $(this).find('#orderDetails').html($('<b> Situação: ' + getIdFromRow  + '</b>'))
-            $(this).find('#orderDetails').html($(my_text))
-       });
+        });
 
         $(".table-striped").find('tr[data-target]').on('click', function () {
             //or do your operations here instead of on show of modal to populate values to modal.
@@ -221,73 +236,87 @@
             row.setAttribute("data-id", "1");
             row.setAttribute("data-target", "#orderModal");
 
+            function addLabelContext(id, text) {
+                document.getElementById(id).textContent += text;
+            }
+
+            function addTextArea(id, text) {
+                    document.getElementById("cronograma_projeto").value = text;
+             }
+
             row.onclick = function (ev) {
                 // ev.target <== td element
                 // ev.target.parentElement <== tr
-                let index = ev.target.parentElement.rowIndex;
-                console.log(index);
+                
+                    var index = ev.target.parentElement.rowIndex;
+                    console.log(index);
+                    console.log(projects[index + 1]);
+                    console.log(projects[index].Cronograma);
+                 
+                    addLabelContext("titulo_projeto", " " + projects[index].Titulo_do_Projeto);
+                    addLabelContext("pesquisador_projeto", " " + projects[index].Nome_do_Pesquisador);
+                    addTextArea("cronograma_projeto", " " + projects[index].Cronograma);
+                }
 
-                // index => projects[index] e ai pega para preencher o index
+                let cellName = document.createElement("td");
+                let cellTextName = document.createTextNode(projects[i].Titulo_do_Projeto);
+                cellName.appendChild(cellTextName);
+                row.appendChild(cellName);
+
+                let cellStart = document.createElement("td");
+                let cellTextStart = document.createTextNode(projects[i].Data_inicio);
+                cellStart.appendChild(cellTextStart);
+                row.appendChild(cellStart);
+
+                let cellEnd = document.createElement("td");
+                let cellTextEnd = document.createTextNode(projects[i].Data_fim);
+                cellEnd.appendChild(cellTextEnd);
+                row.appendChild(cellEnd);
+
+                let cellPatrocinio = document.createElement("td");
+                let cellTextPatrocinio = document.createTextNode(projects[i].Empresas);
+                cellPatrocinio.appendChild(cellTextPatrocinio);
+                row.appendChild(cellPatrocinio);
+
+                let cellAlunos = document.createElement("td");
+                // We use this to have a random number between 0 and 9
+                aluno_amount = projects[i].Gastos[0]
+                let cellTextAlunos = document.createTextNode(aluno_amount);
+                cellAlunos.appendChild(cellTextAlunos);
+                row.appendChild(cellAlunos);
+
+                let cellSituacao_Desc = document.createElement("td");
+                let cellTextSituacao_Desc = document.createTextNode(projects[i].Situacao_Desc);
+                // Add color
+                cellSituacao_Desc.style.color = projects[i].Situacao_Cor;
+                cellSituacao_Desc.appendChild(cellTextSituacao_Desc);
+                row.appendChild(cellSituacao_Desc);
+
+                return row;
+
             }
 
-            let cellName = document.createElement("td");
-            let cellTextName = document.createTextNode(projects[i].Titulo_do_Projeto);
-            cellName.appendChild(cellTextName);
-            row.appendChild(cellName);
+            let xhr = new XMLHttpRequest();
 
-            let cellStart = document.createElement("td");
-            let cellTextStart = document.createTextNode(projects[i].Data_inicio);
-            cellStart.appendChild(cellTextStart);
-            row.appendChild(cellStart);
 
-            let cellEnd = document.createElement("td");
-            let cellTextEnd = document.createTextNode(projects[i].Data_fim);
-            cellEnd.appendChild(cellTextEnd);
-            row.appendChild(cellEnd);
+            xhr.open('GET', 'http://localhost:5000/projects/');
 
-            let cellPatrocinio = document.createElement("td");
-            let cellTextPatrocinio = document.createTextNode(projects[i].Empresas);
-            cellPatrocinio.appendChild(cellTextPatrocinio);
-            row.appendChild(cellPatrocinio);
+            xhr.responseType = 'json';
 
-            let cellAlunos = document.createElement("td");
-			// We use this to have a random number between 0 and 9
-			aluno_amount = projects[i].Gastos[0]
-            let cellTextAlunos = document.createTextNode(aluno_amount);
-            cellAlunos.appendChild(cellTextAlunos);
-            row.appendChild(cellAlunos);
-
-            let cellSituacao_Desc = document.createElement("td");
-            let cellTextSituacao_Desc = document.createTextNode(projects[i].Situacao_Desc);
-			// Add color
-			cellSituacao_Desc.style.color = projects[i].Situacao_Cor;
-            cellSituacao_Desc.appendChild(cellTextSituacao_Desc);
-            row.appendChild(cellSituacao_Desc);
-
-            return row;
-
-        }
-
-        let xhr = new XMLHttpRequest();
-
-        xhr.open('GET', 'http://localhost:5000/projects/');
-
-        xhr.responseType = 'json';
-
-        xhr.send();
+            xhr.send();
 
         xhr.onload = function () {
-            // populate tables
-            let projects = xhr.response;
-            var tbody = document.getElementById("project-list");
-
-            tbody.appendChild(populateRow(projects, 0));
-            tbody.appendChild(populateRow(projects, 1));
-            tbody.appendChild(populateRow(projects, 2));
-            tbody.appendChild(populateRow(projects, 3));
-            tbody.appendChild(populateRow(projects, 4));
-            tbody.appendChild(populateRow(projects, 5));
-        };
+                        // populate tables
+                        let projects = xhr.response;
+                var tbody = document.getElementById("project-list");
+    
+                tbody.appendChild(populateRow(projects, 0));
+                tbody.appendChild(populateRow(projects, 1));
+                tbody.appendChild(populateRow(projects, 2));
+                tbody.appendChild(populateRow(projects, 3));
+                tbody.appendChild(populateRow(projects, 4));
+                tbody.appendChild(populateRow(projects, 5));
+            };
     </script>
 </body>
 

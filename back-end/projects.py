@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 from HARDCODE import *
-from flask import jsonify
 
 DATA_FOLDER = "../data/"
 PROJECT_FILE = "projetos.csv"
@@ -38,9 +37,4 @@ def _all_projects():
         df[col] += temp.dt.month.astype(str) + "-" 
         df[col] += temp.dt.year.astype(str)
 
-    result = {}
-
-    for index, row in df.iterrows():
-        result[index] = dict(row)
-
-    return jsonify(result)
+    return df
