@@ -25,6 +25,11 @@ def _all_projects():
                    ALUNOS[2] + ', ' + \
                    ALUNOS[3] + '\n'
 
+    df["Data_inicio"] = pd.date_range(start='01/01/2019', end='24/08/2019', \
+                                      periods=len(df))
+    df["Data_fim"] = pd.date_range(start='25/10/2019', end='01/01/2021', \
+                                      periods=len(df))
+
     result = {}
 
     for index, row in df.iterrows():
