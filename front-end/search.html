@@ -119,33 +119,31 @@
                 </nav>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Olá professora Maria da Graça</h3><a
-                            class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i
-                                class="fas fa-download fa-sm text-white-50"></i>Adicionar projeto</a>
                     </div><label>Projetos</label>
-                    <div class="row">
-                        <div class="col">
-                            <div class="modal fade" role="dialog" tabindex="-1">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h4 class="modal-title">Modal Title</h4><button type="button" class="close"
-                                                data-dismiss="modal" aria-label="Close"><span
-                                                    aria-hidden="true">×</span></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>The content of your modal.</p>
-                                        </div>
-                                        <div class="modal-footer"><button class="btn btn-light" type="button"
-                                                data-dismiss="modal">Close</button><button class="btn btn-primary"
-                                                type="button">Save</button></div>
-                                    </div>
-                                </div>
-                            </div>
+
+
+
+
+            <div class="container">
+                <h3 class="text-dark mb-4">Pesquisar projeto</h3>
+                <div class="container">
+                    <div class="card">
+                        <div class="card-body">
+                            <row>
+                                <col>
+                                    <label>Parte do título:</label>
+                                    <input type="text" id="searchText">
+									<input type="button" value="Pesquisar" id="searchButton">
+                                </col>
+                            </row>
                         </div>
                     </div>
-                </div>
-                <div class="row">
+                </div>    
+                <div class="card shadow mb-5"></div>
+            </div>
+        </div>
+ 
+               <div class="row">
                     <div class="col">
                         <div class="table-responsive">
                             <table class="table">
@@ -199,15 +197,7 @@
 
 			my_text = '<b> Título do projeto:' + getIdFromRow  + '</b>' 
 			my_text += '<b> Descrição dos gastos: ' + getIdFromRow  + '</b>'
-            $(this).find('#orderDetails').html($('<b> Título do projeto:' + getIdFromRow  + '</b>'))
-            $(this).find('#orderDetails').html($('<b> Data de início: ' + getIdFromRow  + '</b>'))
-            $(this).find('#orderDetails').html($('<b> Data de fim: ' + getIdFromRow  + '</b>'))
-            $(this).find('#orderDetails').html($('<b> Data de fim: ' + getIdFromRow  + '</b>'))
-            $(this).find('#orderDetails').html($('<b> Gasto total: ' + getIdFromRow  + '</b>'))
-            $(this).find('#orderDetails').html($('<b> Descrição dos gastos: ' + getIdFromRow  + '</b>'))
-            $(this).find('#orderDetails').html($('<b> Situação: ' + getIdFromRow  + '</b>'))
-            $(this).find('#orderDetails').html($(my_text))
-       });
+      });
 
         $(".table-striped").find('tr[data-target]').on('click', function () {
             //or do your operations here instead of on show of modal to populate values to modal.
@@ -215,9 +205,13 @@
         });
     </script>
 
-    <script>
-        //<tr data-toggle="modal" data-id="1" data-target="#orderModal">
 
+	
+    <script>
+		document.getElementById("searchButton").addEventListener("click", searchProject);
+
+
+        //<tr data-toggle="modal" data-id="1" data-target="#orderModal">
         function populateRow(projects, i) {
             let row = document.createElement("tr");
 
@@ -267,32 +261,38 @@
 			cellSituacao_Desc.style.color = projects[i].Situacao_Cor;
             cellSituacao_Desc.appendChild(cellTextSituacao_Desc);
             row.appendChild(cellSituacao_Desc);
-
             return row;
-
         }
 
-        let xhr = new XMLHttpRequest();
 
-        xhr.open('GET', 'http://localhost:5000/projects/');
+		function searchProject() {
+			query = document.getElementById("searchText").value
 
-        xhr.responseType = 'json';
+			let xhr = new XMLHttpRequest();
+			xhr.open('GET', 'http://localhost:5000/search/' + query);
+			xhr.responseType = 'json';
+			xhr.send();
 
-        xhr.send();
+			xhr.onload = function () {
+				// populate tables
+				let projects = xhr.response;
+				var tbody = document.getElementById("project-list");
 
-        xhr.onload = function () {
-            // populate tables
-            let projects = xhr.response;
-            var tbody = document.getElementById("project-list");
+				while(tbody.hasChildNodes()) {
+					tbody.removeChild(tbody.lastChild);
+				}
 
-            tbody.appendChild(populateRow(projects, 0));
-            tbody.appendChild(populateRow(projects, 1));
-            tbody.appendChild(populateRow(projects, 2));
-            tbody.appendChild(populateRow(projects, 3));
-            tbody.appendChild(populateRow(projects, 4));
-            tbody.appendChild(populateRow(projects, 5));
-        };
+				var count = Object.keys(projects).length;
+				for (var j=0; j < Math.min(count, 6); j++) {
+					tbody.appendChild(populateRow(projects, j));
+				}
+			};
+		}
+		
+
     </script>
+
+
 </body>
 
 </html>
