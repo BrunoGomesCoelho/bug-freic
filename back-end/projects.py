@@ -8,6 +8,7 @@ PROJECT_FILE = "projetos.csv"
 
 
 def _all_projects():
+    np.random.seed(43)
     df = pd.read_csv(DATA_FOLDER+PROJECT_FILE)
     df.drop(columns=["2_Bolsa"], inplace=True)
     situacao_idx = np.random.randint(3, size=len(df))
