@@ -193,7 +193,13 @@
         }).on('show.bs.modal', function(){
             var getIdFromRow = $(this).data('orderid');
             //make your ajax call populate items or what even you need
-            $(this).find('#orderDetails').html($('<b> Nome da Iniciação Científica: ' + getIdFromRow  + '</b>'))
+            $(this).find('#orderDetails').html($('<b> Título do projeto:' + getIdFromRow  + '</b>'))
+            $(this).find('#orderDetails').html($('<b> Data de início: ' + getIdFromRow  + '</b>'))
+            $(this).find('#orderDetails').html($('<b> Data de fim: ' + getIdFromRow  + '</b>'))
+            $(this).find('#orderDetails').html($('<b> Data de fim: ' + getIdFromRow  + '</b>'))
+            $(this).find('#orderDetails').html($('<b> Gasto total: ' + getIdFromRow  + '</b>'))
+            $(this).find('#orderDetails').html($('<b> Descrição dos gastos: ' + getIdFromRow  + '</b>'))
+            $(this).find('#orderDetails').html($('<b> Situação: ' + getIdFromRow  + '</b>'))
         });
 
         $(".table-striped").find('tr[data-target]').on('click', function(){
