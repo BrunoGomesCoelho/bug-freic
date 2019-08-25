@@ -24,12 +24,7 @@ def _all_students():
         df[col] = df[col].astype(str)
     df["Media"] = df["Media"].apply(lambda x: x[:4])
 
-    result = {}
-    for index, row in df.iterrows():
-        result[index] = dict(row)
-
     if TESTING:
         df.to_csv("students.csv", index=False)
-
-    return jsonify(result)
+    return df
 
