@@ -1,12 +1,12 @@
 import numpy as np
 
 
-SCHEDULE = """Fase 1:     Jan 2019 - Jan 2019     Revisão bibliográfica referente a avaliação de sistemas de aprendizado de máquina;
-Fase 2:     Feb 2019 - Mar 2019     Estudo sobre a ferramenta Weka e seus sistemas de aprendizado de máquina para classificação;
-Fase 3:    Mar 2019 - Jun 2019     Estudo do código Java dos classificadores na ferramenta Weka e identificação dos principais parâmetros;
-Fase 4:     Jun 2019 - Set 2019     Implementação de uma classe de otimização de parâmetros utilizando uma busca em grid;
-Fase 5:     Out 2019 - Nov 2019     Realização de experimentos com dados;
-Fase 6:     Dez 2019 - Dez 2019     Elaboração do relatório final e escrita de artigos.Revisão bibliográfica referente a avaliação de sistemas de aprendizado de máquina;"""
+SCHEDULE = """Fase 1:     Revisão bibliográfica referente a avaliação de sistemas de aprendizado de máquina;
+Fase 2:     Estudo sobre a ferramenta Weka e seus sistemas de aprendizado de máquina para classificação;
+Fase 3:    Estudo do código Java dos classificadores na ferramenta Weka e identificação dos principais parâmetros;
+Fase 4:     Implementação de uma classe de otimização de parâmetros utilizando uma busca em grid;
+Fase 5:     Realização de experimentos com dados;
+Fase 6:     Elaboração do relatório final e escrita de artigos.Revisão bibliográfica referente a avaliação de sistemas de aprendizado de máquina;"""
 
 FINANCES_DESCRIPTION = """Bolsa: 3 x 300,00
 Raspberry Pi 3 B: 259,00
