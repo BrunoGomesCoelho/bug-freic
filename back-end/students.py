@@ -13,7 +13,7 @@ def _all_students():
     cols = ["NUSP", "Nome", "Media", "Semestre", "Creditos_Acumulados"]
     df = pd.DataFrame(columns=cols)
 
-    df["Nome"] = temp["Bolsista"]
+    df["Nome"] = temp["Nome_do_Pesquisador"]
     df["NUSP"] = np.random.randint(8000000, 9999999, size=size)
     df["Media"] = np.random.normal(7.0, 2.1, size=size)
     df["Semestre"] = np.random.randint(1, 8, size=size)
