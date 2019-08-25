@@ -82,7 +82,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <div class="table-responsive">
+                        <div class="table-responsive table-hover">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -95,7 +95,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr data-toggle="modal" data-id="1" data-target="#orderModal">
                                         <td>Cell 1</td>
                                         <td>Cell 2</td>
                                         <td>Text</td>
@@ -103,7 +103,7 @@
                                         <td>Text</td>
                                         <td>Text</td>
                                     </tr>
-                                    <tr>
+                                    <tr data-toggle="modal" data-id="1" data-target="#orderModal">
                                         <td>Cell 3</td>
                                         <td>Cell 4</td>
                                         <td>Text</td>
@@ -111,7 +111,7 @@
                                         <td>Text</td>
                                         <td>Text</td>
                                     </tr>
-                                    <tr>
+                                    <tr data-toggle="modal" data-id="1" data-target="#orderModal">
                                         <td>Text</td>
                                         <td>Text</td>
                                         <td>Text</td>
@@ -119,7 +119,7 @@
                                         <td>Text</td>
                                         <td>Text</td>
                                     </tr>
-                                    <tr>
+                                    <tr data-toggle="modal" data-id="1" data-target="#orderModal">
                                         <td>Text</td>
                                         <td>Text</td>
                                         <td>Text</td>
@@ -127,7 +127,7 @@
                                         <td>Text</td>
                                         <td>Text</td>
                                     </tr>
-                                    <tr>
+                                    <tr data-toggle="modal" data-id="1" data-target="#orderModal">
                                         <td>Text</td>
                                         <td>Text</td>
                                         <td>Text</td>
@@ -141,8 +141,20 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col"></div>
+
+            <div id="orderModal" class="modal fade" role="dialog" aria-labelledby="orderModal" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h3>Detalhes do projeto</h3>
+                        </div>
+                        <div id="orderDetails" class="modal-body"></div>
+                        <div id="orderItems" class="modal-body"></div>
+                        <div class="modal-footer">
+                          <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+                        </div>
+                      </div>
+                    </div>
             </div>
         </div>
     </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
@@ -150,6 +162,27 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="assets/js/theme.js"></script>
+
+
+
+    <script>
+        $('#orderModal').modal({
+            keyboarnd: true,
+            backdrop: "static",
+            show:false,
+
+        }).on('show.bs.modal', function(){
+            var getIdFromRow = $(this).data('orderid');
+            //make your ajax call populate items or what even you need
+            $(this).find('#orderDetails').html($('<b> Nome da Iniciação Científica: ' + getIdFromRow  + '</b>'))
+        });
+
+        $(".table-striped").find('tr[data-target]').on('click', function(){
+            //or do your operations here instead of on show of modal to populate values to modal.
+            $('#orderModal').data('orderid',$(this).data('id'));
+        });
+    </script>
+
 </body>
 
 </html>
