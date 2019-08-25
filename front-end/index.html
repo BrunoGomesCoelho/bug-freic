@@ -125,47 +125,7 @@
                                             <th>Situação</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Cell 1</td>
-                                            <td>Cell 2</td>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cell 3</td>
-                                            <td>Cell 4</td>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                            <td>Text</td>
-                                        </tr>
+                                    <tbody id="project-list">
                                     </tbody>
                                 </table>
                             </div>
@@ -183,6 +143,44 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="assets/js/theme.js"></script>
     <script>
+
+      function populateRow(projects, i) {
+        let row = document.createElement("tr");
+
+        let cellName = document.createElement("td");
+        let cellTextName = document.createTextNode(projects[i].Titulo_do_Projeto);
+        cellName.appendChild(cellTextName);
+        row.appendChild(cellName);
+
+        let cellStart = document.createElement("td");
+        let cellTextStart = document.createTextNode(projects[i].Data_inicio);
+        cellStart.appendChild(cellTextStart);
+        row.appendChild(cellStart);
+
+        let cellEnd = document.createElement("td");
+        let cellTextEnd = document.createTextNode(projects[i].Data_fim);
+        cellEnd.appendChild(cellTextEnd);
+        row.appendChild(cellEnd);
+
+        let cellPatrocinio = document.createElement("td");
+        let cellTextPatrocinio = document.createTextNode(projects[i].Empresas);
+        cellPatrocinio.appendChild(cellTextPatrocinio);
+        row.appendChild(cellPatrocinio);
+
+        let cellAlunos = document.createElement("td");
+        let cellTextAlunos = document.createTextNode(projects[i].Alunos);
+        cellAlunos.appendChild(cellTextAlunos);
+        row.appendChild(cellAlunos);
+
+        let cellSituacao_Desc = document.createElement("td");
+        let cellTextSituacao_Desc = document.createTextNode(projects[i].Situacao_Desc);
+        cellSituacao_Desc.appendChild(cellTextSituacao_Desc);
+        row.appendChild(cellSituacao_Desc);
+
+        return row;
+
+      }
+
         let xhr = new XMLHttpRequest();
 
         xhr.open('GET', 'http://localhost:5000/projects/');
@@ -191,11 +189,17 @@
 
         xhr.send();
 
-        // the response is {"message": "Hello, world!"}
         xhr.onload = function () {
-            let responseObj = xhr.response;
-            console.log(responseObj); // Hello, world!
-            console.log('hi there');
+          // populate tables
+          let projects = xhr.response;
+          var tbody = document.getElementById("project-list");
+
+          tbody.appendChild(populateRow(projects, 0));
+          tbody.appendChild(populateRow(projects, 1));
+          tbody.appendChild(populateRow(projects, 2));
+          tbody.appendChild(populateRow(projects, 3));
+          tbody.appendChild(populateRow(projects, 4));
+          tbody.appendChild(populateRow(projects, 5));
         };
     </script>
 </body>
