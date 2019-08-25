@@ -25,10 +25,17 @@ def _all_projects():
                    ALUNOS[2] + ', ' + \
                    ALUNOS[3] + '\n'
 
+    # Get dates
     df["Data_inicio"] = pd.date_range(start='01/01/2019', end='24/08/2019', \
                                       periods=len(df))
     df["Data_fim"] = pd.date_range(start='25/10/2019', end='01/01/2021', \
                                       periods=len(df))
+    # Correctly get format day-month-year
+    for col in ["Data_inicio", "Data_fim"]:
+        temp = df[col].copy(deep=True)
+        df[col] = temp.dt.day.astype(str) + "-"
+        df[col] += temp.dt.month.astype(str) + "-" 
+        df[col] += temp.dt.year.astype(str)
 
     result = {}
 
