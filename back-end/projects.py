@@ -19,7 +19,7 @@ def _all_projects():
     df["Gastos_Desc"] = FINANCES_DESCRIPTION
     df["Gastos"] = (np.random.randint(3, 10, size=len(df))*100*12).astype(str)
     df["Gastos"] += ",00"
-    df["Empresas"] = EMPRESAS[situacao_idx]
+    df["Empresas"] = EMPRESAS[np.random.randint(len(EMPRESAS), size=len(df))]
     df["Alunos"] = ALUNOS[0] + ', ' + \
                    ALUNOS[1] + ', ' + \
                    ALUNOS[2] + ', ' + \
