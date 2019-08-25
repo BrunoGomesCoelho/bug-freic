@@ -11,7 +11,7 @@ df_students = students._all_students()
 
 def process_dataframe(df):
     result = {}
-    for index, row in df.iterrows():
+    for index, row in df.reset_index(drop=True).iterrows():
         result[index] = dict(row)
 
     response = jsonify(result)
