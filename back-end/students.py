@@ -5,6 +5,7 @@ from HARDCODE import *
 
 DATA_FOLDER = "../data/"
 PROJECT_FILE = "projetos.csv" 
+TESTING = False
 
 def _all_students():
     temp = pd.read_csv(DATA_FOLDER+PROJECT_FILE)
@@ -26,5 +27,9 @@ def _all_students():
     result = {}
     for index, row in df.iterrows():
         result[index] = dict(row)
+
+    if TESTING:
+        df.to_csv("students.csv", index=False)
+
     return jsonify(result)
 
