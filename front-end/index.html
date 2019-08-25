@@ -9,25 +9,36 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <style>
+      .cor-modal {
+        font-weight: 700;
+        color: #4e73df;
+      }
 
+      .cor-detalhe {
+        color: #303138;
+        font-weight: 650;
+      }
+    </style>
 
 </head>
 
 <body id="page-top">
     <div id="wrapper">
-        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0"
-            style="height: 649px;">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="height: 649px;">
             <div class="container-fluid d-flex flex-column p-0">
                 <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
                     <div class="sidebar-brand-text mx-3"><span>nome do proje</span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
-                <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i
-                                class="fas fa-tachometer-alt"></i><span>Dashboard</span></a><a class="nav-link"
-                            href="profile.html"><i class="fas fa-user"></i><span>Perfil</span></a></li>
-                </ul>
+                    <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                            <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
+				    <a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Perfil</span></a>
+			    <a class="nav-link"
+                            href="search.html"><i class="fas fa-user"></i><span>Pesquisa</span></a>
+			    </li>
+                    </ul>
                 <div class="text-center d-none d-md-inline"></div>
             </div>
         </nav>
@@ -173,14 +184,14 @@
 
             <div id="orderModal" class="modal fade" role="dialog" aria-labelledby="orderModal" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
-                    <div class="modal-content" style="padding: 50px">
+                    <div class="modal-content" style="padding: 20px 32px 32px 32px">
                         <div class="modal-header">
-                            <h3>Detalhes do projeto</h3>
+                            <h3 class="cor-detalhe">Detalhes do projeto</h3>
                         </div>
                         <div id="orderDetails" class="modal-body"></div>
-                        <h5>Título: </h5><label id="titulo_projeto"></label>
-                        <h5>Pesquisador(a) Responsável: </h5><label id="pesquisador_projeto"></label>
-                        <h5>Cronograma: </h5><label for="cronograma_projeto"></label>
+                        <h5 class="cor-modal">Título: </h5><label id="titulo_projeto"></label>
+                        <h5 class="cor-modal">Pesquisador(a) Responsável: </h5><label id="pesquisador_projeto"></label>
+                        <h5 class="cor-modal">Cronograma: </h5><label for="cronograma_projeto"></label>
                         <textarea name="cronograma_projeto" id="cronograma_projeto" cols="30" rows="10"
                             readonly></textarea>
                         <div class=" modal-footer">
