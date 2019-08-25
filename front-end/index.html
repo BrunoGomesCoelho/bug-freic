@@ -161,7 +161,7 @@
                                         <th style="width: 139px;">Data de início</th>
                                         <th>Data final</th>
                                         <th>Patrocínio</th>
-                                        <th>Alunos</th>
+                                        <th>Qtd Alunos</th>
                                         <th>Situação</th>
                                     </tr>
                                 </thead>
@@ -267,12 +267,16 @@
             row.appendChild(cellPatrocinio);
 
             let cellAlunos = document.createElement("td");
-            let cellTextAlunos = document.createTextNode(projects[i].Alunos);
+			// We use this to have a random number between 0 and 9
+			aluno_amount = projects[i].Gastos[0]
+            let cellTextAlunos = document.createTextNode(aluno_amount);
             cellAlunos.appendChild(cellTextAlunos);
             row.appendChild(cellAlunos);
 
             let cellSituacao_Desc = document.createElement("td");
             let cellTextSituacao_Desc = document.createTextNode(projects[i].Situacao_Desc);
+			// Add color
+			cellSituacao_Desc.style.color = projects[i].Situacao_Cor;
             cellSituacao_Desc.appendChild(cellTextSituacao_Desc);
             row.appendChild(cellSituacao_Desc);
 
