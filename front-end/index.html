@@ -10,36 +10,37 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <style>
-      .cor-modal {
-        font-weight: 700;
-        color: #4e73df;
-      }
+        .cor-modal {
+            font-weight: 700;
+            color: #4e73df;
+        }
 
-      .cor-detalhe {
-        color: #303138;
-        font-weight: 650;
-      }
+        .cor-detalhe {
+            color: #303138;
+            font-weight: 650;
+        }
     </style>
 
 </head>
 
 <body id="page-top">
     <div id="wrapper">
-        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="height: 649px;">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0"
+            style="height: 649px;">
             <div class="container-fluid d-flex flex-column p-0">
                 <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
                     <div class="sidebar-brand-text mx-3"><span>nome do proje</span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
-                    <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i
-                                    class="fas fa-tachometer-alt"></i>
-                                <span>Dashboard</span></a>
-                            <a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Perfil</span></a>
-                            <a class="nav-link" href="search.html"><i class="fas fa-user"></i><span>Pesquisa</span></a>
-                        </li>
-                    </ul>
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i
+                                class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span></a>
+                        <a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Perfil</span></a>
+                        <a class="nav-link" href="search.html"><i class="fas fa-user"></i><span>Pesquisa</span></a>
+                    </li>
+                </ul>
                 <div class="text-center d-none d-md-inline"></div>
             </div>
         </nav>
@@ -240,81 +241,86 @@
             }
 
             function addTextArea(id, text) {
-                document.getElementById("cronograma_projeto").value = text;
-            }
+                    document.getElementById("cronograma_projeto").value = text;
+             }
 
             row.onclick = function (ev) {
                 // ev.target <== td element
                 // ev.target.parentElement <== tr
-                var index = ev.target.parentElement.rowIndex;
-                console.log(index);
-                console.log(projects[index + 1]);
-                console.log(projects[index].Cronograma);
+                
+                    var index = ev.target.parentElement.rowIndex;
+                    console.log(index);
+                    console.log(projects[index + 1]);
+                    console.log(projects[index].Cronograma);
+                    if (document.getElementById("titulo_projeto") !== null && document.getElementById("pesquisador_projeto") !== null 
+                        document.getElementById("cronograma_projeto")
+                    )  {
 
-                addLabelContext("titulo_projeto", " " + projects[index].Titulo_do_Projeto);
-                addLabelContext("pesquisador_projeto", " " + projects[index].Nome_do_Pesquisador);
-                addTextArea("cronograma_projeto", " " + projects[index].Cronograma);
+                    }
+                    addLabelContext("titulo_projeto", " " + projects[index].Titulo_do_Projeto);
+                    addLabelContext("pesquisador_projeto", " " + projects[index].Nome_do_Pesquisador);
+                    addTextArea("cronograma_projeto", " " + projects[index].Cronograma);
+                }
+
+                let cellName = document.createElement("td");
+                let cellTextName = document.createTextNode(projects[i].Titulo_do_Projeto);
+                cellName.appendChild(cellTextName);
+                row.appendChild(cellName);
+
+                let cellStart = document.createElement("td");
+                let cellTextStart = document.createTextNode(projects[i].Data_inicio);
+                cellStart.appendChild(cellTextStart);
+                row.appendChild(cellStart);
+
+                let cellEnd = document.createElement("td");
+                let cellTextEnd = document.createTextNode(projects[i].Data_fim);
+                cellEnd.appendChild(cellTextEnd);
+                row.appendChild(cellEnd);
+
+                let cellPatrocinio = document.createElement("td");
+                let cellTextPatrocinio = document.createTextNode(projects[i].Empresas);
+                cellPatrocinio.appendChild(cellTextPatrocinio);
+                row.appendChild(cellPatrocinio);
+
+                let cellAlunos = document.createElement("td");
+                // We use this to have a random number between 0 and 9
+                aluno_amount = projects[i].Gastos[0]
+                let cellTextAlunos = document.createTextNode(aluno_amount);
+                cellAlunos.appendChild(cellTextAlunos);
+                row.appendChild(cellAlunos);
+
+                let cellSituacao_Desc = document.createElement("td");
+                let cellTextSituacao_Desc = document.createTextNode(projects[i].Situacao_Desc);
+                // Add color
+                cellSituacao_Desc.style.color = projects[i].Situacao_Cor;
+                cellSituacao_Desc.appendChild(cellTextSituacao_Desc);
+                row.appendChild(cellSituacao_Desc);
+
+                return row;
+
             }
 
-            let cellName = document.createElement("td");
-            let cellTextName = document.createTextNode(projects[i].Titulo_do_Projeto);
-            cellName.appendChild(cellTextName);
-            row.appendChild(cellName);
-
-            let cellStart = document.createElement("td");
-            let cellTextStart = document.createTextNode(projects[i].Data_inicio);
-            cellStart.appendChild(cellTextStart);
-            row.appendChild(cellStart);
-
-            let cellEnd = document.createElement("td");
-            let cellTextEnd = document.createTextNode(projects[i].Data_fim);
-            cellEnd.appendChild(cellTextEnd);
-            row.appendChild(cellEnd);
-
-            let cellPatrocinio = document.createElement("td");
-            let cellTextPatrocinio = document.createTextNode(projects[i].Empresas);
-            cellPatrocinio.appendChild(cellTextPatrocinio);
-            row.appendChild(cellPatrocinio);
-
-            let cellAlunos = document.createElement("td");
-			// We use this to have a random number between 0 and 9
-			aluno_amount = projects[i].Gastos[0]
-            let cellTextAlunos = document.createTextNode(aluno_amount);
-            cellAlunos.appendChild(cellTextAlunos);
-            row.appendChild(cellAlunos);
-
-            let cellSituacao_Desc = document.createElement("td");
-            let cellTextSituacao_Desc = document.createTextNode(projects[i].Situacao_Desc);
-			// Add color
-			cellSituacao_Desc.style.color = projects[i].Situacao_Cor;
-            cellSituacao_Desc.appendChild(cellTextSituacao_Desc);
-            row.appendChild(cellSituacao_Desc);
-
-            return row;
-
-        }
-
-        let xhr = new XMLHttpRequest();
+            let xhr = new XMLHttpRequest();
 
 
-        xhr.open('GET', 'http://localhost:5000/projects/');
+            xhr.open('GET', 'http://localhost:5000/projects/');
 
-        xhr.responseType = 'json';
+            xhr.responseType = 'json';
 
-        xhr.send();
+            xhr.send();
 
         xhr.onload = function () {
-            // populate tables
-            let projects = xhr.response;
-            var tbody = document.getElementById("project-list");
-
-            tbody.appendChild(populateRow(projects, 0));
-            tbody.appendChild(populateRow(projects, 1));
-            tbody.appendChild(populateRow(projects, 2));
-            tbody.appendChild(populateRow(projects, 3));
-            tbody.appendChild(populateRow(projects, 4));
-            tbody.appendChild(populateRow(projects, 5));
-        };
+                        // populate tables
+                        let projects = xhr.response;
+                var tbody = document.getElementById("project-list");
+    
+                tbody.appendChild(populateRow(projects, 0));
+                tbody.appendChild(populateRow(projects, 1));
+                tbody.appendChild(populateRow(projects, 2));
+                tbody.appendChild(populateRow(projects, 3));
+                tbody.appendChild(populateRow(projects, 4));
+                tbody.appendChild(populateRow(projects, 5));
+            };
     </script>
 </body>
 
